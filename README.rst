@@ -27,14 +27,18 @@ Built Time:
 * setuptools'
 * numpy
 * cython>0.23
+
+Test Time:
+
 * pytest
+* py_gd (optionally)
 
 Building
 --------
 
 I don't currently have binary wheels available, so you need to have a properly configured C complier, etc.
 
-Otherwise, download the source code from gitHub, either as a clone or source tarball::
+Download the source code from gitHub, either as a clone or source tarball::
 
   pip install ./
 
@@ -44,22 +48,36 @@ should do it. or::
 
 For "editable mode"
 
-Regular old::
+Or::
 
-  setup.py install
+  python setup.py develop
 
-Should work too, but then you get that easy-install garbage scattered around.
+(which is the same thing as pip editable mode)
 
 Testing
 -------
 
-You should be able to run the tests from source with::
+Once both ``py_contour`` and ``pytest`` are installed, you should be able to run the tests directly in the source with::
 
-  python setup.py test
+  $ pytest
+
+or::
+
+  $ pytest test_contour.py
+
 
 Or run the installed tests with::
 
-  py.test --pyargs py_contour 
+  py.test --pyargs py_contour
+
+
+There is also a small example file: ``image_example.py`` that shows how to visualize the results. The image examples require the ``py_gd`` package:
+
+https://github.com/NOAA-ORR-ERD/py_gd
+
+Binaries are available for conda here:
+
+https://anaconda.org/conda-forge/py_gd
 
 
 
