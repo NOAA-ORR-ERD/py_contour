@@ -35,7 +35,6 @@ setup(
     ext_modules = cythonize(ext_modules),
     packages = ['py_contour'],
     version=extract_version(),
-    cmdclass=dict(test=PyTest),
     description="Python wrappers around A C-based contouring code",
     long_description=long_description,
     author="Chris Barker",
