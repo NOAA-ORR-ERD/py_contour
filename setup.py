@@ -23,23 +23,12 @@ def extract_version(package='py_contour'):
             raise ValueError("Couldn't find __version__ in %s"%fname)
     return version
 
-class PyTest(TestCommand):
-
-    def finalize_options(self):
-        TestCommand.finalize_options(self)
-        self.verbose = True
-
-    def run_tests(self):
-        import pytest
-        errno = pytest.main(self.test_args)
-        sys.exit(errno)
 
 include_dirs = [numpy.get_include(),]
 ext_modules=[ Extension("py_contour.contour",
                         ["py_contour/contour.pyx", "py_contour/conrec.cxx"],
                         include_dirs = [numpy.get_include(),]
                          )]
-
 
 setup(
     name = 'py_contour',
